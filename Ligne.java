@@ -1,5 +1,5 @@
-public class Ligne{
+public class Ligne {
 
-    private String nom;
-
+    
+    
 }
