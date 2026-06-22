@@ -6,6 +6,12 @@ public class Station {
     private String name;
     private String city;
 
+    // builders
+    public Station(String name, String city){
+        this.name = name;
+        this.city = city;
+    }
+
     // getters
     public String getName(){return this.name;}
     public String getCity(){return this.city;}
