@@ -32,42 +32,9 @@ public class Node {
         if (this.next != null){
             System.out.print(" <---> ");
             this.next.printLine();
-        }
-    }
-
-    // boolean addStation() : Add station in the line
-    public boolean addStation(Station station){
-        if (this.next == null){
-            this.next = new Node(station, this, null);
-            return true;
         } else {
-            return this.next.addStation(station);
+            System.out.println();
         }
     }
-
-    // boolean removeStation() : Remove station of the le line
-    public boolean removeStation(Station station){
-        if (this.current == station){
-            this.previous.setNext(this.next);
-            this.next.setPrevious(previous);
-            return true;
-        } else {
-            if (this.next == null){
-                return false;
-            } else {
-                return this.next.removeStation(station);
-            }
-        }
-    }
-
-    // int length() : Returns the length of the line aften this node
-    public int length(){
-        if (this.next != null){
-            return 1 + this.next.length();
-        } else {
-            return 1;
-        }
-    }
-
     
 }

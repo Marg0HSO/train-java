@@ -3,62 +3,48 @@ package LinkedList;
 public class Line {
 
     // attributes
-    private Node head;
+    private Node first;
+    private Node last;
 
     // builders
-    public Line(Node head){
-        this.head = head;
+    public Line(Node first, Node last){
+        this.first = first;
+        this.last = last;
     }
 
     public Line(){
-        this(null);
+        this(null, null);
     }
 
     // getters
-    public Node getHead(){return this.head;}
+    public Node getFirst(){return this.first;}
+    public Node getLast(){return this.last;}
 
     // setters
-    public void setHead(Node head){this.head = head;}
+    public void setFirst(Node first){this.first = first;}
+    public void setLast(Node last){this.last = last;}
 
     // methods
 
     // void printLine() : Print the line
     public void printLine(){
-        if (this.head == null){
+        if (this.first == null){
             System.out.println(" === ");
         } else {
-            this.head.printLine();
-            System.out.println();
+            this.first.printLine();
         }
     }
 
-    // boolean addStation() : Add a station to the line
-    public boolean addStation(Station station){
-        if (this.head == null){
-            this.head = new Node(station, null, null);
-            return true;
+    // void addStation() : add a station at the end of the line
+    public void addStation(Station station){
+        Node newStation = new Node(station, this.last, null);
+        if (this.last == null){
+            this.first = newStation;
+            this.last = newStation;
         } else {
-            return this.head.addStation(station);
+            this.last.setNext(newStation);
+            this.last = newStation;
         }
     }
 
-    // boolean removeStation() : Remove station of the le line
-    public boolean removeStation(Station station){
-        if (this.head == null){
-            return false;
-        } else {
-            return this.head.removeStation(station);
-        }
-    }
-
-    // int length() : Returns the length of the line // if the line is empty, it returns -1
-    public int length(){
-        if (this.head != null){
-            return this.head.length();
-        } else {
-            return -1;
-        }
-    }
-
-    
 }
